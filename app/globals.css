@@ -295,7 +295,7 @@ select {
   border-color: #9C1244;
 }
 
-.border-[#C5930A]/40 {
+.border-\[\#C5930A\]\/40 {
   border-color: rgba(197, 147, 10, 0.4);
 }
 
