@@ -1,5 +1,38 @@
 import { supabase } from '@/lib/supabase';
 
+export async function GET() {
+  try {
+    if (!supabase) {
+      return Response.json(
+        {
+          message: 'Database is not configured yet. Add Supabase environment variables and try again.'
+        },
+        { status: 500 }
+      );
+    }
+
+    const { data, error } = await supabase
+      .from('wedding_rsvps')
+      .select('*')
+      .order('created_at', { ascending: false });
+
+    if (error) {
+      throw error;
+    }
+
+    return Response.json({ data: data || [] }, { status: 200 });
+  } catch (error) {
+    console.error('RSVP fetch error:', error);
+
+    return Response.json(
+      {
+        message: error?.message || 'Unable to load RSVPs.'
+      },
+      { status: 500 }
+    );
+  }
+}
+
 export async function POST(request) {
   try {
     const body = await request.json();
