@@ -63,14 +63,14 @@ function Nav({ page, setPage }) {
         boxShadow: scrolled ? '0 2px 16px rgba(156,18,68,0.08)' : 'none'
       }}
     >
-      <div className="w-full px-6 h-24 flex items-center">
-        <button onClick={() => setPage('rsvp')} className="flex items-center gap-4 group flex-shrink-0">
-          <WeddingLogo size={48} />
-          <div className="text-left">
-            <p className="font-script text-[#9C1244] leading-none" style={{ fontSize: '1.7rem' }}>
+      <div className="w-full px-3 sm:px-6 h-20 sm:h-24 flex items-center gap-2">
+        <button onClick={() => setPage('rsvp')} className="flex items-center gap-2 sm:gap-4 group flex-shrink-0 min-w-0 overflow-hidden">
+          <WeddingLogo size={42} />
+          <div className="text-left min-w-0">
+            <p className="font-script text-[#9C1244] leading-none" style={{ fontSize: 'clamp(1.15rem, 4vw, 1.7rem)' }}>
               Apeksha &amp; Utkarsh
             </p>
-            <p className="font-display text-[10px] tracking-[0.22em] text-[#C5930A] uppercase leading-none mt-1">
+            <p className="font-display text-[9px] sm:text-[10px] tracking-[0.14em] sm:tracking-[0.22em] text-[#C5930A] uppercase leading-none mt-1">
               23 &amp; 24 November 2026
             </p>
           </div>
@@ -95,7 +95,12 @@ function Nav({ page, setPage }) {
           ))}
         </div>
 
-        <button className="md:hidden text-[#9C1244]" onClick={() => setMenuOpen(!menuOpen)}>
+        <button
+          className="md:hidden text-[#9C1244] ml-auto flex items-center justify-center rounded-full border border-[#E8C96A] bg-white/80"
+          onClick={() => setMenuOpen(!menuOpen)}
+          style={{ width: '2.5rem', height: '2.5rem', flexShrink: 0 }}
+          aria-label="Toggle navigation menu"
+        >
           <svg
             width="22"
             height="22"
@@ -171,7 +176,7 @@ function Countdown() {
         <h2 className="font-script mb-10" style={{ fontSize: '3.6rem', color: '#F3E2C7' }}>
           The Countdown Begins
         </h2>
-        <div className="grid grid-cols-4 gap-4 md:gap-8">
+        <div className="grid countdown-grid gap-4 md:gap-8">
           {[
             { value: displayTime.days, label: 'Days' },
             { value: displayTime.hours, label: 'Hours' },
@@ -253,28 +258,28 @@ function RSVPPage({ onSubmit }) {
   return (
     <div className="pt-16">
       <div
-        className="relative overflow-hidden"
+        className="relative overflow-hidden rsvp-hero"
         style={{
           background: 'linear-gradient(135deg, #8B1136 0%, #9C1244 35%, #B3154A 100%)',
           borderBottom: '1px solid rgba(247,234,209,0.35)'
         }}
       >
-        <div className="max-w-3xl mx-auto min-h-[320px] px-6 py-16 flex flex-col items-center justify-center text-center">
+        <div className="max-w-3xl mx-auto min-h-[320px] px-4 sm:px-6 py-12 sm:py-16 flex flex-col items-center justify-center text-center">
           <div
-            className="flex items-center justify-center rounded-full border mb-5"
+            className="flex items-center justify-center rounded-full border mb-4 sm:mb-5"
             style={{
-              width: '92px',
-              height: '92px',
+              width: '82px',
+              height: '82px',
               background: 'rgba(255,255,255,0.08)',
               borderColor: 'rgba(247,234,209,0.45)'
             }}
           >
-            <WeddingLogo size={64} />
+            <WeddingLogo size={56} />
           </div>
-          <h1 className="font-script mb-2" style={{ fontSize: 'clamp(2.8rem, 7vw, 5rem)', color: '#F7EAD1', lineHeight: 1.1 }}>
+          <h1 className="font-script mb-2" style={{ fontSize: 'clamp(2.5rem, 12vw, 5rem)', color: '#F7EAD1', lineHeight: 1.1 }}>
             Apeksha &amp; Utkarsh
           </h1>
-          <p className="font-display text-[11px] tracking-[0.3em] uppercase" style={{ color: '#F7EAD1' }}>
+          <p className="font-display text-[9px] sm:text-[11px] tracking-[0.18em] sm:tracking-[0.3em] uppercase" style={{ color: '#F7EAD1' }}>
             23 &amp; 24 November 2026 · Regenta Marrievilla, Ambala Cantt
           </p>
         </div>
@@ -333,7 +338,7 @@ function RSVPPage({ onSubmit }) {
                   {submitError}
                 </div>
               )}
-              <div className="grid md:grid-cols-2 gap-4">
+              <div className="grid rsvp-form-grid md:grid-cols-2 gap-4">
                 <div>
                   <label className="block font-display text-[10px] tracking-[0.2em] text-[#7A6A5A] uppercase mb-2">
                     Full Name *
@@ -542,11 +547,11 @@ function EventsPage() {
         </p>
       </div>
 
-      <div className="max-w-5xl mx-auto px-6 py-14 grid md:grid-cols-3 gap-6 items-start">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 py-10 sm:py-14 grid events-grid gap-6 items-start">
         {events.map((event, index) => (
           <div
             key={event.title}
-            className="flex flex-col border border-[#E8C96A] overflow-hidden"
+            className="event-card flex flex-col border border-[#E8C96A] overflow-hidden"
             style={{ background: 'white', boxShadow: '0 2px 20px rgba(156,18,68,0.05)', display: 'flex', alignItems: 'center', textAlign: 'center' }}
           >
             <div className="p-8 flex flex-col gap-5 flex-1 w-full items-center text-center">

@@ -237,31 +237,31 @@ select {
   color: white;
 }
 
-.text-[#9C1244] {
+.text-\[\#9C1244\] {
   color: #9C1244;
 }
 
-.text-[#E8C96A] {
+.text-\[\#E8C96A\] {
   color: #E8C96A;
 }
 
-.text-[#7A6A5A] {
+.text-\[\#7A6A5A\] {
   color: #7A6A5A;
 }
 
-.text-[#C5930A] {
+.text-\[\#C5930A\] {
   color: #C5930A;
 }
 
-.text-[#1A1A6E] {
+.text-\[\#1A1A6E\] {
   color: #1A1A6E;
 }
 
-.text-[#B8A898] {
+.text-\[\#B8A898\] {
   color: #B8A898;
 }
 
-.text-[#FBF5E6] {
+.text-\[\#FBF5E6\] {
   color: #FBF5E6;
 }
 
@@ -269,11 +269,11 @@ select {
   background: white;
 }
 
-.bg-[#FBF5E6] {
+.bg-\[\#FBF5E6\] {
   background: #FBF5E6;
 }
 
-.bg-[#F3E8CC] {
+.bg-\[\#F3E8CC\] {
   background: #F3E8CC;
 }
 
@@ -283,15 +283,15 @@ select {
   border-style: solid;
 }
 
-.border-[#E8C96A] {
+.border-\[\#E8C96A\] {
   border-color: #E8C96A;
 }
 
-.border-[#F3E8CC] {
+.border-\[\#F3E8CC\] {
   border-color: #F3E8CC;
 }
 
-.border-[#9C1244] {
+.border-\[\#9C1244\] {
   border-color: #9C1244;
 }
 
@@ -550,19 +550,19 @@ select {
   padding-right: 1rem;
 }
 
-.text-[8px] {
+.text-\[8px\] {
   font-size: 10px;
 }
 
-.text-[9px] {
+.text-\[9px\] {
   font-size: 11px;
 }
 
-.text-[10px] {
+.text-\[10px\] {
   font-size: 12px;
 }
 
-.text-[11px] {
+.text-\[11px\] {
   font-size: 13px;
 }
 
@@ -638,7 +638,7 @@ select {
   font-weight: 700;
 }
 
-.placeholder-[#B8A898]::placeholder {
+.placeholder-\[\#B8A898\]::placeholder {
   color: #B8A898;
 }
 
@@ -743,6 +743,14 @@ select {
   align-self: center;
 }
 
+.hidden {
+  display: none;
+}
+
+.block {
+  display: block;
+}
+
 .sm\:flex-row {
   @media (min-width: 640px) {
     flex-direction: row;
@@ -768,14 +776,22 @@ select {
 }
 
 .md\:flex {
-  @media (min-width: 768px) {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .md\:flex {
     display: flex;
+  }
+
+  .md\:hidden {
+    display: none;
   }
 }
 
-.md\:hidden {
-  @media (max-width: 767px) {
-    display: none;
+@media (max-width: 767px) {
+  .md\:hidden {
+    display: block;
   }
 }
 
@@ -809,8 +825,40 @@ select {
   }
 }
 
+.rsvp-hero {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
 @media (max-width: 767px) {
-  .md\:hidden {
-    display: none;
+  .countdown-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .events-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .event-card {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .rsvp-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mobile-stack {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+@media (min-width: 768px) {
+  .countdown-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .events-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
