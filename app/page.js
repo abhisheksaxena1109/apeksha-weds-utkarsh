@@ -538,7 +538,7 @@ function EventsPage() {
           Wedding Celebrations
         </h1>
         <p className="font-body text-[#7A6A5A] text-sm mt-2 max-w-md mx-auto">
-          Three unforgettable ceremonies — each with its own magic, dress code, and memories to be made.
+          Three unforgettable ceremonies — each with its own magic, traditions, dress code, and memories to be made.
         </p>
       </div>
 
